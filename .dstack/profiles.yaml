@@ -1,0 +1,5 @@
+profiles:
+  - name: poor
+    spot_policy: on-demand
+    max_duration: 30d
+    default: true # (Optional) Activate the profile by default

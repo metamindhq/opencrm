@@ -1,0 +1,18 @@
+type: dev-environment
+python: "3.11"
+
+env:
+  - HF_HUB_ENABLE_HF_TRANSFER=1
+setup:
+  - pip3 install --upgrade pip
+  - pip install uv
+# Use either `python` or `image` to configure environment
+ide: vscode
+resources:
+  # gpu:
+  # name: RTX4090
+  # memory: 80GB
+  # count: 2
+  cpu: 2
+  memory: 8GB
+  disk: 30GB

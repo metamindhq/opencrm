@@ -1,0 +1,12 @@
+name: 'OpenHealthCRM: AI powered CRM for healthcare'
+nebulaConfig:
+  genSpaceName: OCR
+  genSpaceDesc: AI powered CRM for healthcare
+  embeddingSpaceName: embeddings
+  kgSpaceName: knowledge_graph
+name: 'OpenHealthCRM: AI powered CRM for healthcare'
+nebulaConfig:
+  genSpaceName: OCR
+  genSpaceDesc: AI powered CRM for healthcare
+  embeddingSpaceName: embeddings
+  kgSpaceName: knowledge_graph
