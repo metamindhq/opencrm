@@ -155,12 +155,16 @@ class AppointmentStore:
         medical_history = patient_store.get_medical_history(appointemnt_details.patient_id)
         # Convert medical history to string and store the interval between each history
         medical_history_str = ""
-        first = medical_history[0]
-        medical_history_str += f"{first.date} - {first.disease} - {first.medicines}\n"
-        if len(medical_history) > 1:
-            for history in medical_history[2:]:
-                length = (history.date - first.date).days
-                medical_history_str += f"{length} day interval - {history.disease} - {history.medicines}\n"
+
+        if len(medical_history) > 0:
+            first = medical_history[0]
+            medical_history_str += f"{first.date} - {first.disease} - {first.medicines}\n"
+            if len(medical_history) > 1:
+                for history in medical_history[2:]:
+                    length = (history.date - first.date).days
+                    medical_history_str += f"{length} day interval - {history.disease} - {history.medicines}\n"
+        else:
+            medical_history_str = appointemnt_details.patient_medical_history
                 
         appointment = Appointment(doctor_id=appointemnt_details.doctor_id, patient_id=appointemnt_details.patient_id,
                                   date_time=appointemnt_details.date_time,
