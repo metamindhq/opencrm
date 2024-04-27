@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from opencrm.database import do_commit
 from opencrm.models import Patient, Appointment, MedicalHistory, Prescription, Doctor
-from opencrm.schemas import Patient as PatientSchema, Appointment as AppointmentSchema, \
+from opencrm.schemas import NewPatient as NewPatientSchema, Patient as PatientSchema, Appointment as AppointmentSchema, \
     MedicalHistory as MedicalHistorySchema, Prescription as PrescriptionSchema, Doctor as DoctorSchema
 from datetime import datetime
 
@@ -45,12 +45,22 @@ class PatientsStore:
         return self.db.query(Prescription).filter(Prescription.patient_id == patient_id,
                                                   Prescription.id == prescription_id).first()
 
-    def create_patient(self, user: PatientSchema):
+    def create_patient(self, user: NewPatientSchema):
         patient = Patient(name=user.name, age=user.age, height=user.height, weight=user.weight,
                           blood_group=user.blood_group,
                           user_name=user.username, password=user.password)
         query = self.db.add(patient)
         do_commit(self.db)
+
+        if user.medical_history:
+            patient = self.get_patient(patient.id)
+            self.create_medical_history(
+                patient_id=patient.id,
+                date=user.medical_history.date,
+                disease=user.medical_history.disease,
+                medicines=user.medical_history.medicines
+            )
+
         return patient
 
     def create_medical_history(self, patient_id: int, date: datetime, disease: str, medicines: str):
@@ -155,12 +165,16 @@ class AppointmentStore:
         medical_history = patient_store.get_medical_history(appointemnt_details.patient_id)
         # Convert medical history to string and store the interval between each history
         medical_history_str = ""
-        first = medical_history[0]
-        medical_history_str += f"{first.date} - {first.disease} - {first.medicines}\n"
-        if len(medical_history) > 1:
-            for history in medical_history[2:]:
-                length = (history.date - first.date).days
-                medical_history_str += f"{length} day interval - {history.disease} - {history.medicines}\n"
+
+        if len(medical_history) > 0:
+            first = medical_history[0]
+            medical_history_str += f"{first.date} - {first.disease} - {first.medicines}\n"
+            if len(medical_history) > 1:
+                for history in medical_history[2:]:
+                    length = (history.date - first.date).days
+                    medical_history_str += f"{length} day interval - {history.disease} - {history.medicines}\n"
+        else:
+            medical_history_str = appointemnt_details.patient_medical_history
                 
         appointment = Appointment(doctor_id=appointemnt_details.doctor_id, patient_id=appointemnt_details.patient_id,
                                   date_time=appointemnt_details.date_time,
