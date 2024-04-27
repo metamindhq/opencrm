@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel, Field
 from datetime import datetime
 
@@ -17,6 +18,14 @@ class Patient(PatientBase):
 
     class Config:
         orm_mode = True
+
+class NewMedicalHistory(BaseModel):
+    date: datetime
+    disease: str
+    medicines: str
+
+class NewPatient(Patient):
+    medical_history: Optional[NewMedicalHistory] = None
 
 
 class DoctorBase(BaseModel):

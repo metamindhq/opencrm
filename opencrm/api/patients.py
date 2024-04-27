@@ -1,7 +1,8 @@
+from typing import Optional
 from fastapi import APIRouter
 from opencrm.store import PatientsStore
 from opencrm.database import get_database
-from opencrm.schemas import Patient
+from opencrm.schemas import NewPatient, Patient
 
 router = APIRouter(
     prefix="/patients",
@@ -14,9 +15,8 @@ patients_store = PatientsStore(
     db
 )
 
-
 @router.post("/")
-async def create_patient(user: Patient):
+async def create_patient(user: NewPatient):
     return patients_store.create_patient(user=user)
 
 
