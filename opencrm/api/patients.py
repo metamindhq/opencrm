@@ -34,6 +34,10 @@ async def get_all_patients():
 async def get_patient_by_id(patient_id: int):
     return patients_store.get_patient(patient_id)
 
+@router.get("/username/{patient_username}")
+async def get_patient_by_username(patient_username: str):
+    return patients_store.get_patient_by_username(patient_username)
+
 
 @router.get("/{patient_id}/medical_history")
 async def get_medical_history(patient_id: int):

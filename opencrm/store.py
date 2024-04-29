@@ -13,6 +13,10 @@ class PatientsStore:
     def get_patient(self, patient_id):
         res = self.db.query(Patient).filter(Patient.id == patient_id).first()
         return res
+    
+    def get_patient_by_username(self, patient_username):
+        res = self.db.query(Patient).filter(Patient.user_name == patient_username).first()
+        return res
 
     def get_patients(self):
         return self.db.query(Patient).all()
