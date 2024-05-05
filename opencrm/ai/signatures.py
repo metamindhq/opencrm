@@ -36,3 +36,11 @@ class PatientInteractionSignature(dspy.Signature):
     patient_conversation = dspy.InputField(desc="Problem patient is facing right now stated by patient themself")
     past_diagnosis = dspy.InputField(desc="Comma separated past diagnosis of the patient")
     past_habits = dspy.InputField(desc="comma separated bad habits of the patients")
+
+
+class DrugDrugInteractionSignature(dspy.Signature):
+    drugs = dspy.InputField(desc="Comma separated drugs patient is taking")
+    prescribed_drugs = dspy.InputField(desc="Comma separated drugs prescribed by the doctor")
+    interactions = dspy.OutputField(desc="Boolean value of whether the prescribed drugs have any interaction with the "
+                                         "drugs patient is already taking IMPORTANT!! This must be a boolean value")
+    interaction_details = dspy.OutputField(desc="Description of the interaction between the drugs")

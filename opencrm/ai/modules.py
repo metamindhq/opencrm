@@ -2,7 +2,7 @@ import dspy
 import json
 
 from opencrm.ai.signatures import AntecedentSignature, SymptomsSignature, DiagnosisSignature, \
-    SelectSpecializationSignature
+    SelectSpecializationSignature, DrugDrugInteractionSignature
 
 
 def is_comma_separated_list(string):
@@ -79,7 +79,6 @@ class SelectSpecialization(dspy.Module):
     def forward(self, specializations, diagnosed_diseases):
         output = self.gen(specializations=specializations,
                           diagnosed_diseases=diagnosed_diseases).selected_specialization
-        dspy.Suggest(is_single_word(output), single_word_assertion_message)
         return output
 
 
@@ -93,3 +92,19 @@ def patient_details(conversation, past_diagnosis, past_habits, bmi):
         'diagnosis': diagnosis
     }
     return summary
+
+
+class DrugDrugInteraction(dspy.Module):
+    def __init__(self):
+        super().__init__()
+        self.gen = dspy.ChainOfThought(DrugDrugInteractionSignature)
+
+    def forward(self, drugs, prescribed_drugs):
+        gen = self.gen(drugs=drugs,
+                       prescribed_drugs=prescribed_drugs)
+        is_interactive = gen.interactions
+        interaction_details = gen.interaction_details
+        return {
+            'is_interactive': is_interactive,
+            'interaction_details': interaction_details
+        }
