@@ -19,10 +19,12 @@ class Patient(PatientBase):
     class Config:
         orm_mode = True
 
+
 class NewMedicalHistory(BaseModel):
     date: datetime
     disease: str
     medicines: str
+
 
 class NewPatient(Patient):
     medical_history: Optional[NewMedicalHistory] = None
@@ -86,3 +88,11 @@ class Prescription(PrescriptionBase):
 
     class Config:
         orm_mode = True
+
+
+class PatientQuery(BaseModel):
+    bmi: str
+    query: str = None
+    past_diagnosis: str = None
+    past_habits: str = None
+

@@ -1,0 +1,122 @@
+name,symptom
+E_91,Fever
+E_88,Fatigue
+E_144,Muscle pain
+E_162,Weight loss
+E_55,Pain
+E_53,Pain
+E_57,Radiating pain
+E_54,Pain
+E_59,Pain onset
+E_56,Pain intensity
+E_58,Pain location
+E_97,Sore throat
+E_9,Swollen lymph nodes
+E_51,Diarrhea
+E_133,Location of affected region
+E_129,Skin lesions
+E_130,Rash
+E_134,Rash pain intensity
+E_132,Rash swelling
+E_136,Itching
+E_135,Lesion size
+E_131,Skin peeling
+E_148,Nausea or vomiting
+E_50,Night sweats
+E_76,Dizziness or lightheadedness
+E_89,Fatigue
+E_88,Fatigue
+E_66,Shortness of breath
+E_154,Pallor
+E_82,Lightheadedness
+E_55,Pain
+E_53,Pain
+E_57,Radiating pain
+E_54,Pain
+E_59,Pain onset
+E_56,Pain intensity
+E_58,Pain location
+E_179,Blood in stool
+E_140,Black stools
+E_145,Heavy menstrual bleeding
+E_55,Pain
+E_53,Pain
+E_57,Radiating pain
+E_54,Pain
+E_59,Pain onset
+E_56,Pain intensity
+E_58,Pain location
+E_181,Nasal congestion
+E_91,Fever
+E_201,Cough
+E_45,Coughing up blood
+E_201,Cough
+E_45,Coughing up blood
+E_66,Shortness of breath
+E_91,Fever
+E_162,Weight loss
+E_55,Pain
+E_53,Pain
+E_57,Radiating pain
+E_54,Pain
+E_59,Rate of onset
+E_56,Pain intensity
+E_58,Pain location
+E_201,Cough
+E_50,Night sweats
+E_181,Nasal congestion
+E_97,Sore throat
+E_144,Muscle pain
+E_91,Fever
+E_77,Productive cough
+E_133,Location of affected region
+E_129,Skin problems
+E_130,Rash
+E_134,Rash pain intensity
+E_132,Swelling
+E_136,Itching
+E_135,Lesion size
+E_131,Skin peeling
+E_161,Loss of appetite
+E_94,Chills or shivers
+E_91,Fever
+E_50,Night sweats
+E_201,Cough
+E_88,Fatigue
+E_181,Nasal congestion
+E_97,Sore throat
+E_144,Muscle pain
+E_55,Pain
+E_53,Pain
+E_57,Radiating pain
+E_54,Pain
+E_59,Rate of onset
+E_56,Pain intensity
+E_58,Pain location
+E_220,Pleuritic pain
+E_55,Pain
+E_53,Pain
+E_57,Radiating pain
+E_54,Pain
+E_59,Pain onset
+E_56,Pain intensity
+E_58,Pain location
+E_45,Coughing up blood
+E_133,Location of affected region
+E_129,Skin problems
+E_130,Rash
+E_134,Rash pain intensity
+E_132,Swelling
+E_136,Itching
+E_135,Lesion size
+E_131,Skin peeling
+E_175,Fatigue and malaise
+E_161,Loss of appetite
+E_219,Nocturnal symptoms
+E_91,Fever
+E_77,Colored or abundant sputum
+E_201,Cough
+E_66,Shortness of breath
+E_94,Chills or shivers
+E_144,Muscle pain
+E_181,Runny or Congested nose
