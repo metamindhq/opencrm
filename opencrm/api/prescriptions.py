@@ -26,11 +26,11 @@ async def get_prescription(prescription_id: int):
 
 @router.get("/patient/{patient_id}")
 async def get_prescriptions_by_patient(patient_id: int):
-    return prescription_store.get_prescriptions_by_patient(patient_id)
+    return prescription_store.get_all_prescriptions_by_patient_sorted(patient_id)
 
 @router.get("/doctor/{doctor_id}")
 async def get_prescriptions_by_doctor(doctor_id: int):
-    return prescription_store.get_prescriptions_by_doctor(doctor_id)
+    return prescription_store.get_all_prescriptions_by_doctor_sorted(doctor_id)
 
 @router.get("/appointment/{appointment_id}")
 async def get_prescriptions_by_appointment(appointment_id: int):
