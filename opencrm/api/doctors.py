@@ -44,6 +44,9 @@ async def get_patients(doctor_id: int):
 async def update_doctor(doctor_id: int, name: str, specialization: str):
     return doctor_store.update_doctor(doctor_id, name, specialization)
 
+@router.get("/username/{doctor_username}")
+async def get_doctor_by_username(doctor_username: str):
+    return doctor_store.get_doctor_by_username(doctor_username) 
 
 @router.delete("/{doctor_id}")
 async def delete_doctor(doctor_id: int):

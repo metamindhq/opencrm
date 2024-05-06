@@ -105,6 +105,11 @@ class DoctorStore:
     def get_doctor(self, doctor_id: int):
         # sort by id
         return self.db.query(Doctor).filter(Doctor.id == doctor_id).first()
+    
+
+    def get_doctor_by_username(self, doctor_username: str):
+        # sort by username
+        return self.db.query(Doctor).filter(Doctor.user_name == doctor_username).first()
 
     def get_all_doctors(self):
         return self.db.query(Doctor).all()
